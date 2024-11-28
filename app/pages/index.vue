@@ -1,6 +1,11 @@
 <template>
-    <main>
-        <h1 class="text-5xl text-orange-500 font-bold">Welcome to Lamp of Seekers</h1>
+    <main class="relative min-h-screen w-screen overflow-x-hidden">
+        <!-- <h1 class="text-5xl text-rose-300 font-bold">Welcome to Lamp of Seekers</h1>
+        <h1 class="text-5xl text-rose-300 font-bold font-zentry">Welcome to Lamp of Seekers</h1>
+        <h1 class="text-5xl text-rose-300 font-bold font-circular-web">Welcome to Lamp of Seekers</h1>
+        <h1 class="text-5xl text-rose-300 font-bold font-robert-medium">Welcome to Lamp of Seekers</h1>
+        <h1 class="text-5xl text-rose-300 font-bold font-robert-regular">Welcome to Lamp of Seekers</h1> -->
+        <Hero />
     </main>
 </template>
 
