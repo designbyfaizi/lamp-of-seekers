@@ -37,7 +37,7 @@
         <video
           ref="nextVideoRef"
           :src="getVideoSrc(currentIndex)"
-          autoplay
+          :autoplay="false"
           loop
           muted
           id="next-video"
@@ -47,7 +47,7 @@
         />
         <video
           :src="getVideoSrc(currentIndex)"
-          :autoplay="true"
+          :autoplay="false"
           loop
           muted
           class="absolute left-0 top-0 size-full object-cover object-center"
@@ -86,7 +86,10 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
-const { isLoading: _isLoading } = useRuntimeConfig();
+const {
+  isLoading: _isLoading,
+  public: { autoplay },
+} = useRuntimeConfig();
 
 const currentIndex = ref(1);
 const hasClicked = ref(false);

@@ -13,6 +13,8 @@ export default defineNuxtConfig({
     public: {
       // @ts-ignore
       isLoading: (process.env.IS_LOADING as unknown) as boolean,
+      // @ts-ignore
+      autoplay: (process.env.AUTOPLAY as unknown) as boolean
     },
   },
   devServer: {

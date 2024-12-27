@@ -4,7 +4,7 @@
       :src="src"
       loop
       muted
-      :autoplay="true"
+      :autoplay="false"
       class="absolute left-0 top-0 size-full object-cover object-center"
     ></video>
     <div class="relative z-10 flex size-full flex-col justify-between p-5 text-blue-50">
@@ -25,6 +25,9 @@ type Props = {
   description: string;
 };
 const props = defineProps<Props>();
+const {
+  public: { autoplay },
+} = useRuntimeConfig();
 </script>
 
 <style></style>

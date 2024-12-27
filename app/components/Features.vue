@@ -54,7 +54,7 @@
             src="/videos/feature-5.mp4"
             loop
             muted
-            autoplay
+            :autoplay="false"
             class="size-full object-cover object-center"
           ></video>
         </BentoTilt>
@@ -63,6 +63,10 @@
   </section>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const {
+  public: { autoplay },
+} = useRuntimeConfig();
+</script>
 
 <style></style>
