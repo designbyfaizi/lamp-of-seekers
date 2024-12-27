@@ -2,7 +2,7 @@
   <div class="relative h-dvh w-screen overflow-x-hidden">
     <div
       v-if="isLoading"
-      class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-rose-600-50"
+      class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-rose-100/50 backdrop-blur-xl"
     >
       <div class="three-body">
         <div class="three-body__dot"></div>
@@ -22,7 +22,14 @@
             @click="handleMiniVideoClick"
             class="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100"
           >
-            <video
+            <img
+              :src="getImageSrc(upcomingVideoIndex)"
+              @loadeddata="handleVideoLoad"
+              ref="nextVideoRef"
+              id="current-video"
+              class="size-64 origin-center scale-150 object-cover object-center"
+            />
+            <!-- <video
               preload="auto"
               class="size-64 origin-center scale-150 object-cover object-center"
               @loadeddata="handleVideoLoad"
@@ -31,10 +38,24 @@
               loop
               muted
               id="current-video"
-            />
+            /> -->
           </div>
         </div>
-        <video
+        <img
+          :src="getImageSrc(currentIndex)"
+          @loadeddata="handleVideoLoad"
+          ref="nextVideoRef"
+          id="next-video"
+          class="absolute-center invisible z-20 size-64 object-cover object-center"
+        />
+        <img
+          :src="getImageSrc(currentIndex)"
+          @loadeddata="handleVideoLoad"
+          ref="nextVideoRef"
+          id="next-video"
+          class="absolute left-0 top-0 size-full object-cover object-center"
+        />
+        <!-- <video
           ref="nextVideoRef"
           :src="getVideoSrc(currentIndex)"
           :autoplay="false"
@@ -44,8 +65,8 @@
           class="absolute-center invisible z-20 size-64 object-cover object-center"
           preload="auto"
           @loadeddata="handleVideoLoad"
-        />
-        <video
+        /> -->
+        <!-- <video
           :src="getVideoSrc(currentIndex)"
           :autoplay="false"
           loop
@@ -53,7 +74,7 @@
           class="absolute left-0 top-0 size-full object-cover object-center"
           preload="auto"
           @loadeddata="handleVideoLoad"
-        ></video>
+        ></video> -->
       </div>
       <h1 class="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
         G<b>a</b>ming
@@ -86,17 +107,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
-const {
-  isLoading: _isLoading,
-  public: { autoplay },
-} = useRuntimeConfig();
+const config = useRuntimeConfig();
+const _isLoading = (config.public.isLoading as unknown) as boolean
 
 const currentIndex = ref(1);
 const hasClicked = ref(false);
 const isLoading = ref(_isLoading);
 const loadedVideos = ref(0);
 
-const totalVideos = 4;
+const totalVideos = 3;
 
 const nextVideoRef = ref<HTMLVideoElement | null>(null);
 
@@ -176,6 +195,10 @@ useGSAP(() => {
 
 const getVideoSrc = (index: number) => {
   return `videos/hero-${index}.mp4`;
+};
+
+const getImageSrc = (index: number) => {
+  return `img/${index}.webp`;
 };
 </script>
 

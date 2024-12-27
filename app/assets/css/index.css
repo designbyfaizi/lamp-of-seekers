@@ -32,6 +32,21 @@ body {
 }
 
 @layer utilities {
+  .animated-word{
+    @apply special-font font-zentry font-black opacity-0
+  }
+
+  .story-img-container{
+    @apply relative md:h-dvh h-[90vh] w-full
+  }
+
+  .story-img-mask{
+    @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5
+  }
+
+  .story-img-content{
+    @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px]
+  }
 
   .gallery-img-container {
     @apply size-64 overflow-hidden bg-rose-600;

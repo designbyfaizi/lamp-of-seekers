@@ -17,7 +17,7 @@ export default defineConfig({
     "flex-center": "flex justify-center items-center",
     "nav-hover-btn":
       "relative ms-10 font-general text-xs uppercase text-blue-50 after:content-[''] after:absolute after:-bottom-0.5 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.65_0.05_0.36_1)] hover:after:origin-bottom-left hover:after:scale-x-100 dark:after:bg-white cursor-pointer",
-    "floating-nav": "bg-black rounded-lg border",
+    "floating-nav": "bg-black ring-1 ring-neutral-900 rounded-lg border",
     "border-hsla": "border border-white/20",
     "bento-title": "uppercase md:text-6xl text-4xl font-black font-zentry",
     "bento-tilt_1":
@@ -48,7 +48,6 @@ export default defineConfig({
     [
       "animated-word",
       {
-        "@apply": "@apply special-font font-zentry font-black opacity-0",
         transform:
           "translate3d(10px,51px,-60px) rotateY(60deg) rotateX(-40deg)",
         "transform-origin": "50% 50% -150px !important",
@@ -61,23 +60,18 @@ export default defineConfig({
     [
       "story-img-container",
       {
-        "@apply": "@apply relative md:h-dvh h-[90vh] w-full",
         filter: 'url("#flt_tag")',
       },
     ],
     [
       "story-img-mask",
       {
-        "@apply":
-          "@apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5",
         "clip-path": "polygon(4% 0, 83% 21%, 100% 73%, 0% 100%)",
       },
     ],
     [
       "story-img-content",
       {
-        "@apply":
-          "@apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px]",
         transform:
           "translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1)",
       },
