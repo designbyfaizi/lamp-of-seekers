@@ -108,11 +108,14 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const config = useRuntimeConfig();
-const _isLoading = (config.public.isLoading as unknown) as boolean
+const _isLoading = !(config.public.isLoading as unknown)
+
+console.log({_isLoading: _isLoading})
 
 const currentIndex = ref(1);
 const hasClicked = ref(false);
 const isLoading = ref(_isLoading);
+console.log({isLoading: isLoading.value})
 const loadedVideos = ref(0);
 
 const totalVideos = 3;
