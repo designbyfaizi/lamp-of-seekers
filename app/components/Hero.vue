@@ -2,7 +2,7 @@
   <div class="relative h-dvh w-screen overflow-x-hidden">
     <div
       v-if="isLoading"
-      class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-rose-100/50 backdrop-blur-xl"
+      class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-rose-100"
     >
       <div class="three-body">
         <div class="three-body__dot"></div>
@@ -24,7 +24,7 @@
           >
             <img
               :src="getImageSrc(upcomingVideoIndex)"
-              @loadeddata="handleVideoLoad"
+              @load="handleVideoLoad"
               ref="nextVideoRef"
               id="current-video"
               class="size-64 origin-center scale-150 object-cover object-center"
@@ -43,14 +43,14 @@
         </div>
         <img
           :src="getImageSrc(currentIndex)"
-          @loadeddata="handleVideoLoad"
+          @load="handleVideoLoad"
           ref="nextVideoRef"
           id="next-video"
           class="absolute-center invisible z-20 size-64 object-cover object-center"
         />
         <img
           :src="getImageSrc(currentIndex)"
-          @loadeddata="handleVideoLoad"
+          @load="handleVideoLoad"
           ref="nextVideoRef"
           id="next-video"
           class="absolute left-0 top-0 size-full object-cover object-center"
@@ -76,11 +76,11 @@
           @loadeddata="handleVideoLoad"
         ></video> -->
       </div>
-      <h1 class="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
+      <h1 class="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75 bg-neutral-900/90 p-4 rounded-xl">
         G<b>a</b>ming
       </h1>
       <div class="absolute left-0 top-0 z-40 size-full">
-        <div class="mt-24 px-5 sm:px-10">
+        <div class="mt-24 px-5 sm:px-10 bg-neutral-900/80 backdrop-blur-xl p-4 w-fit rounded-xl ms-4">
           <h1 class="special-font hero-heading text-blue-100">Redefi<b>n</b>e</h1>
           <p class="mb-5 max-w-64 font-robert-regular text-blue-100">
             Enter the Metagame Layer <br />
@@ -96,7 +96,7 @@
         </div>
       </div>
     </div>
-    <h1 class="special-font hero-heading absolute bottom-5 right-5 text-black">
+    <h1 class="special-font hero-heading absolute bottom-5 right-5 text-black p-4 rounded-xl">
       G<b>a</b>ming
     </h1>
   </div>
@@ -110,7 +110,6 @@ gsap.registerPlugin(ScrollTrigger);
 const config = useRuntimeConfig();
 const _isLoading = !(config.public.isLoading as unknown)
 
-console.log({_isLoading: _isLoading})
 
 const currentIndex = ref(1);
 const hasClicked = ref(false);
@@ -123,6 +122,7 @@ const totalVideos = 3;
 const nextVideoRef = ref<HTMLVideoElement | null>(null);
 
 const handleVideoLoad = () => {
+  console.log("Video Loaded")
   loadedVideos.value = loadedVideos.value + 1;
 };
 
