@@ -2,7 +2,7 @@
   <div class="relative h-dvh w-screen overflow-x-hidden">
     <div
       v-if="isLoading"
-      class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-rose-100"
+      class="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-blue-50"
     >
       <div class="three-body">
         <div class="three-body__dot"></div>
@@ -108,7 +108,8 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const config = useRuntimeConfig();
-const _isLoading = !(config.public.isLoading as unknown)
+// const _isLoading = !(config.public.isLoading as unknown)
+const _isLoading = false
 
 
 const currentIndex = ref(1);
